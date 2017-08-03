@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    <link rel"stylesheet" type="text/css" href="style.css"
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      let BaseCount = (BasicComponent) => class extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            count: 0,
+            text: 'Hello'
+          }
+          this.add = this.add.bind(this);
+        }
+        add() {
+          console.log('I have been clicked');
+          this.setState({
+            count: this.state.count + 1
+          })
+        }
+        render() {
+          return (
+            <div className="container">
+              <BasicComponent {...this.state} action={this.add}/>
+            </div>
+          )
+        }
+      }
+      const Button = (props) => {
+        return (
+          <button className="btn btn-blue" onClick={props.action} >Count: {props.count}</button>
+        )
+      }
+
+      const Label = (props) => {
+        return (
+          <label onMouseMove={props.action}>Count: {props.count }</label>
+        )
+      }
+
+      let ExtendedButton = BaseCount(Button);
+      let ExtendedLabel = BaseCount(Label);
+
+      const Container = () => {
+          return (
+            <div>
+              <ExtendedButton />
+              <ExtendedLabel />
+            </div>
+          )
+      }
+
+      ReactDOM.render(
+        <Container />,
+        document.getElementById('app')
+      )
+    </script>
+  </body>
+</html>
