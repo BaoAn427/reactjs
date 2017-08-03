@@ -34,6 +34,10 @@
                 <button onClick={this.generalCount.bind(this, 1)} className="btn btn-blue">Add 1</button>
                 <button onClick={this.generalCount.bind(this, 5)} className="btn btn-green">Add 5</button>
                 <button onClick={this.generalCount.bind(this, 10)} className="btn btn-purple">Add 10</button>
+                // Other method: In this case bind is unneccessary
+                // <button onClick={this.generalCount(1)} className="btn btn-blue">Add 1</button>
+                // <button onClick={this.generalCount(5)} className="btn btn-green">Add 5</button>
+                // <button onClick={this.generalCount(10)} className="btn btn-purple">Add 10</button>
               </div>
             </div>
           )
