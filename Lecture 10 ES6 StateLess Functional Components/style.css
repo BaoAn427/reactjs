@@ -1,0 +1,87 @@
+.container {
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  margin-top: 100px;
+}
+.title {
+  margin-bottom: 40px;
+}
+.btn {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 20px;
+}
+.btn:hover {
+  cursor: pointer;
+}
+.btn:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.btn:after {
+  position: absolute;
+  z-index: -2;
+  content: "";
+  top: 5px;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  border-radius: 5px;
+}
+.btn:before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  top: 5px;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.btn.btn-blue:after {
+  background-color: #3498DB;
+}
+
+.btn.btn-green:after {
+  background-color: #27ae60;
+}
+
+.btn.btn-purple:after {
+  background-color: #8e44ad;
+}
+
+
+.btn.btn-blue {
+  background-color: #3498DB;
+}
+
+.btn.btn-green {
+  background-color: #27ae60;
+}
+
+.btn.btn-purple {
+  background-color: #8e44ad;
+}
+
+
+.btn.btn-blue:hover {
+  background-color: #5DADE2;
+}
+
+.btn.btn-green:hover {
+  background-color: #2ecc71;
+}
+
+.btn.btn-purple:hover {
+  background-color: #9b59b6;
+}
