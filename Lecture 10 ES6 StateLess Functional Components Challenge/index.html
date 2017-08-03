@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    <link rel"stylesheet" type="text/css" href="style.css"
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+      class Counter extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {count: 0}
+          this.add = this.add.bind(this) // feeling unneccessary, can comment
+        }
+        add(value) {
+          this.setState({
+            count: this.state.count + value
+          })
+        }
+        render() {
+          return (
+            <div className="container">
+              <h1 className="title">Count: {this.state.count}</h1>
+              <Button style="btn btn-blue" value={this.props.valueOne} clickHandler={() => this.add(this.props.valueOne)} text={`${this.props.text} ${this.props.valueOne}`} />
+              <Button style="btn btn-green" value={this.props.valueTwo} clickHandler={() => this.add(this.props.valueTwo)} text={`${this.props.text} ${this.props.valueTwo}`}/>
+              <Button style="btn btn-purple" value={this.props.valueThree} clickHandler={() => this.add(this.props.valueThree)} text={`${this.props.text} ${this.props.valueThree}`} />
+            </div>
+          )
+        }
+      }
+      Counter.defaultProps = {
+        valueOne: 1,
+        valueTwo: 5,
+        valueThree: 10,
+        text: 'Add'
+      }
+      Counter.propTypes = {
+        valueOne: React.PropTypes.number.isRequired,
+        valueTwo: React.PropTypes.number.isRequired,
+        valueThree: React.PropTypes.number.isRequired,
+        text: React.PropTypes.string
+      }
+
+      const Button = (props) => {
+        return (
+          <button className={props.style} onClick={props.clickHandler} value={props.value}>{props.text}</button>
+        )
+      }
+      Button.propTypes = {
+        style: React.PropTypes.string,
+        text: React.PropTypes.string,
+        value: React.PropTypes.number,
+        clickHandler: React.PropTypes.func.isRequired
+      }
+
+      ReactDOM.render(
+        <Counter valueOne={10} valueTwo={100} valueThree={1000}/>,
+        document.getElementById('app')
+      );
+
+    </script>
+  </body>
+</html>
