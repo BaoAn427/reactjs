@@ -6,18 +6,13 @@ const PokemonModal = React.createClass({
 	render() {
 		return(
 		<div>
-			<Button
-				bsStyle="primary"
-				bsSize="large"
-				onClick={this.props.openModal}>
-				Launch contained modal
-			</Button>
-
 			<Modal
 				show={this.props.showModal}
 				onHide={this.props.closeModal}>
 				<Modal.Header closeButton>
-					<Modal.Title id="contained-modal-title">Contained Modal</Modal.Title>
+					<Modal.Title id="contained-modal-title">
+						{this.props.pokemon !== null ? this.props.pokemon.name : null}
+					</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					{this.props.pokemon !== null ? <PokemonInfo pokemon={this.props.pokemon}/> : null}
