@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Modal } from 'react-bootstrap/lib';
+import PokemonInfo from './PokemonInfo';
 
 const PokemonModal = React.createClass({
 	render() {
@@ -19,7 +20,7 @@ const PokemonModal = React.createClass({
 					<Modal.Title id="contained-modal-title">Contained Modal</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					Elit est explicabo ipsum eaque dolorem blanditiis doloribus sed id ipsam, beatae, rem fuga id earum? Inventore et facilis obcaecati.
+					{this.props.pokemon !== null ? <PokemonInfo pokemon={this.props.pokemon}/> : null}
 				</Modal.Body>
 				<Modal.Footer>
 					<Button onClick={this.props.closeModal}>Close</Button>
